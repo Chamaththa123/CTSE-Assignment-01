@@ -1,3 +1,7 @@
+require("dotenv").config(); // Load environment variables from .env
+console.log("Loaded SECRET_KEY:", process.env.SECRET_KEY); // Debugging
+
+
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');

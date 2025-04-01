@@ -1,0 +1,50 @@
+name: Build and Publish Images to Docker Hub
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Keeps the manual trigger option as well
+
+
+jobs:
+  publish_images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Build images
+        run: |
+          docker build ./user-service -t chamaththa/user-service:latest
+          
+          docker build ./product-service -t chamaththa/product-service:latest
+
+          docker build ./order-service -t chamaththa/order-service:latest
+          
+          docker build ./gateway -t chamaththa/api-gateway:latest
+
+      - name: Push images to Docker Hub t
+        run: |
+          docker login -u chamaththa -p ${{ secrets.DOCKER_HUB_TOKEN }}
+          
+          docker push chamaththa/user-service:latest
+          
+          docker push chamaththa/order-service:latest
+          
+          docker push chamaththa/api-gateway:latest
+
+# When working under aws deployment, for aws deployment, uncomment and change as you wish. - chamaththa
+      # - name: Configure AWS Credentials
+      #   uses: aws-actions/configure-aws-credentials@v2
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: us-east-1 # Change if needed
+
+      # - name: Deploy to ECS
+      #   run: |
+      #     aws ecs update-service --cluster test-microservices-cluster --service user-service-test-service --force-new-deployment
+      #     aws ecs update-service --cluster test-microservices-cluster --service order-service-test-service --force-new-deployment
+      #     aws ecs update-service --cluster test-microservices-cluster --service gateway-service-test-service --force-new-deployment
+

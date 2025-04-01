@@ -5,9 +5,9 @@ const app = express();
 
 // Define your services and their corresponding ports
 const services = [
-  { route: '/users', target: 'http://localhost:3001', serviceName: 'User Service' },
-  { route: '/orders', target: 'http://localhost:3002', serviceName: 'Order Service' },
-  { route: '/products', target: 'http://localhost:3003', serviceName: 'Product Service' }
+  { route: '/users', target: 'http://user-service:3001', serviceName: 'User Service' },
+  { route: '/orders', target: 'http://order-service:3002', serviceName: 'Order Service' },
+  { route: '/products', target: 'http://product-service:3003', serviceName: 'Product Service' }
 ];
 
 // Loop through services to create routes and proxy middleware dynamically

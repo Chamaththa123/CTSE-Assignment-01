@@ -24,7 +24,7 @@ jobs:
           
           docker build ./gateway -t chamaththa/api-gateway:latest
 
-      - name: Push images to Docker Hub t
+      - name: Push images to Docker Hub
         run: |
           docker login -u chamaththa -p ${{ secrets.DOCKER_HUB_TOKEN }}
           

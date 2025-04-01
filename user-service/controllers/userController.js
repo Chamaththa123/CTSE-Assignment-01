@@ -35,10 +35,6 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: "Invalid email or password" });
     }
 
-    // Check if SECRET_KEY is loaded
-    console.log("SECRET_KEY:", process.env.SECRET_KEY);
-
-
     // Generate JWT token
     const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, { expiresIn: "1h" });
 

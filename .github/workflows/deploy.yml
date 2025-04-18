@@ -29,7 +29,9 @@ jobs:
           docker login -u chamaththa -p ${{ secrets.DOCKER_HUB_TOKEN }}
           
           docker push chamaththa/user-service:latest
-          
+
+          docker push chamaththa/product-service:latest
+
           docker push chamaththa/order-service:latest
           
           docker push chamaththa/api-gateway:latest

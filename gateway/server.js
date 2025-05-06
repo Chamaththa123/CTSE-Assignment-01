@@ -5,9 +5,9 @@ const app = express();
 
 // Define your services and their corresponding ports
 const services = [
-  { route: '/uers', target: 'http://user-service.default.svc.cluster.local:3001', serviceName: 'User Service' },
-  { route: '/orders', target: 'http://order-service:3002', serviceName: 'Order Service' },
-  { route: '/products', target: 'http://product-service:3003', serviceName: 'Product Service' }
+  { route: '/users', target: 'api-gateway-alb-1871463713.eu-north-1.elb.amazonaws.com', serviceName: 'User Service' },
+  { route: '/orders', target: 'api-gateway-alb-1871463713.eu-north-1.elb.amazonaws.com', serviceName: 'Order Service' },
+  { route: '/products', target: 'api-gateway-alb-1871463713.eu-north-1.elb.amazonaws.com', serviceName: 'Product Service' }
 ];
 
 // Loop through services to create routes and proxy middleware dynamically

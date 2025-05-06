@@ -23,7 +23,7 @@ mongoose.connect('mongodb+srv://shamodchamaththa:chamaththa123@cluster0.jbqtuwa.
 });
 
 app.use(express.json());
-app.use('/users', userRoutes);
+app.use('/usrs', userRoutes);
 
 app.listen(PORT, () => {
   console.log(`User service listening on port ${PORT}`);

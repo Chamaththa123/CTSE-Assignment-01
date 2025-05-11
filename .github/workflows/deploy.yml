@@ -54,10 +54,10 @@ jobs:
 
       - name: Deploy to AWS ECS
         run: |
-          aws ecs update-service --cluster CTSE-Cluster --service user-service-service --force-new-deployment
-          aws ecs update-service --cluster CTSE-Cluster --service product-service-service --force-new-deployment
-          aws ecs update-service --cluster CTSE-Cluster --service order-service-service --force-new-deployment
-          aws ecs update-service --cluster CTSE-Cluster --service product-category-service-service --force-new-deployment
+          aws ecs update-service --cluster CTSE-Cluster --service user-service-task-service-4yvrooru --force-new-deployment
+          aws ecs update-service --cluster CTSE-Cluster --service product-service-task-service-39yqan9h --force-new-deployment
+          aws ecs update-service --cluster CTSE-Cluster --service order-service-task-service-bbvb6pyp  --force-new-deployment
+          aws ecs update-service --cluster CTSE-Cluster --service product-category-service-task-service-mkc3b564  --force-new-deployment
 
 
 

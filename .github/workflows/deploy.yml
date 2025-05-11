@@ -22,7 +22,7 @@ jobs:
 
           docker build ./order-service -t chamaththa/order-service:latest
 
-          docker build ./product_category-service -t chamaththa/product_category-service:latest
+          docker build ./product-category-service -t chamaththa/product-category-service:latest
           
           docker build ./gateway -t chamaththa/api-gateway:latest
 

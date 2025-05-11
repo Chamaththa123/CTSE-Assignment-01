@@ -21,6 +21,13 @@ services:
     networks:
       - microservices-network
 
+  product_category-service:
+    build: ./product-category-service
+    ports:
+      - "3004:3004"
+    networks:
+      - microservices-network
+
   api-gateway:
     build: ./gateway
     ports:

@@ -60,18 +60,26 @@ jobs:
           aws ecs update-service --cluster CTSE-Cluster --service product-category-service-task-service-mkc3b564  --force-new-deployment
 
 
+jobs:
+  sonar_cloud:
+    name: SonarCloud Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
-# When working under aws deployment, for aws deployment, uncomment and change as you wish. - chamaththa
-      # - name: Configure AWS Credentials
-      #   uses: aws-actions/configure-aws-credentials@v2
-      #   with:
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     aws-region: us-east-1 # Change if needed
+      - name: Set up JDK 17 (optional, required for Java only)
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
 
-      # - name: Deploy to ECS
-      #   run: |
-      #     aws ecs update-service --cluster test-microservices-cluster --service user-service-test-service --force-new-deployment
-      #     aws ecs update-service --cluster test-microservices-cluster --service order-service-test-service --force-new-deployment
-      #     aws ecs update-service --cluster test-microservices-cluster --service gateway-service-test-service --force-new-deployment
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          args: >
+            -Dsonar.projectKey=Chamaththa123_CTSE-Assignment-01
+            -Dsonar.organization=chamaththa123-org
+            -Dsonar.host.url=https://sonarcloud.io
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
 

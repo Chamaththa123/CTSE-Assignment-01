@@ -59,8 +59,6 @@ jobs:
           aws ecs update-service --cluster CTSE-Cluster --service order-service-task-service-bbvb6pyp  --force-new-deployment
           aws ecs update-service --cluster CTSE-Cluster --service product-category-service-task-service-mkc3b564  --force-new-deployment
 
-
-jobs:
   sonar_cloud:
     name: SonarCloud Scan
     runs-on: ubuntu-latest

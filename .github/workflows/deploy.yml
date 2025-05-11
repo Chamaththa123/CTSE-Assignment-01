@@ -65,11 +65,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up JDK 17 (optional, required for Java only)
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         with:

@@ -36,7 +36,7 @@ jobs:
 
           docker push chamaththa/order-service:latest
 
-          docker push chamaththa/product_category-service:latest
+          docker push chamaththa/product-category-service:latest
           
           docker push chamaththa/api-gateway:latest
 

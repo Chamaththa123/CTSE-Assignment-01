@@ -21,6 +21,8 @@ jobs:
           docker build ./product-service -t chamaththa/product-service:latest
 
           docker build ./order-service -t chamaththa/order-service:latest
+
+          docker build ./product-category-service -t chamaththa/order-service:latest
           
           docker build ./gateway -t chamaththa/api-gateway:latest
 
@@ -33,6 +35,8 @@ jobs:
           docker push chamaththa/product-service:latest
 
           docker push chamaththa/order-service:latest
+
+          docker push chamaththa/product-category-service:latest
           
           docker push chamaththa/api-gateway:latest
 

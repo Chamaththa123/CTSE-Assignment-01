@@ -22,13 +22,15 @@ mongoose.connect('mongodb+srv://shamodchamaththa:chamaththa123@cluster0.jbqtuwa.
 });
 
 app.use(express.json());
+
+app.get('/product-category/health', (req, res) => {
+  console.log('test')
+  res.status(200).send('OK');
+});
+
 app.use('/product-category', productRoutes); // Route for products
 // new changes testd
 
-
-app.get('/health', (req, res) => {
-res.status(200).send('OK');
-});
 
 app.listen(PORT, () => {
   console.log(`Product category service listening on port ${PORT}`);

@@ -25,6 +25,6 @@ app.use(express.json());
 app.use('/product-category', productRoutes); // Route for products
 // new changes test
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Product category service listening on port ${PORT}`);
 });

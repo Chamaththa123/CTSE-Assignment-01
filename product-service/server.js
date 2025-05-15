@@ -22,6 +22,11 @@ mongoose.connect('mongodb+srv://shamodchamaththa:chamaththa123@cluster0.jbqtuwa.
 });
 
 app.use(express.json());
+
+app.get('/products/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 app.use('/products', productRoutes); // Route for products
 
 app.listen(PORT, () => {

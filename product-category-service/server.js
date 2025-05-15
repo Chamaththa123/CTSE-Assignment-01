@@ -25,6 +25,11 @@ app.use(express.json());
 app.use('/product-category', productRoutes); // Route for products
 // new changes test
 
+
+app.get('/health', (req, res) => {
+res.status(200).send('OK');
+});
+
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Product category service listening on port ${PORT}`);
 });

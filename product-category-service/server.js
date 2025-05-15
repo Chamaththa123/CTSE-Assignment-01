@@ -27,8 +27,7 @@ app.get('/product-category/health', (req, res) => {
   res.status(200).send('OK');
 });
 
-app.use('/product-category', productRoutes); // Route for products
-// new changes testd
+app.use('/product-category', productRoutes);
 
 
 app.listen(PORT, () => {

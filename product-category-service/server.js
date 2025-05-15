@@ -29,7 +29,7 @@ app.get('/product-category/health', (req, res) => {
 
 app.use('/product-category', productRoutes);
 
-
+//tg
 app.listen(PORT, () => {
   console.log(`Product category service listening on port ${PORT}`);
 });

@@ -4,8 +4,8 @@ const productCategoryController = require("../controllers/productCategoryControl
 const authMiddleware = require("../middleware/authMiddleware");
 
 
-router.get("/", productCategoryController.getAllProductCategory);
-router.get("/:id", productCategoryController.getProductCategoryById);
+router.get("/", authMiddleware,productCategoryController.getAllProductCategory);
+router.get("/:id",authMiddleware, productCategoryController.getProductCategoryById);
 router.post("/", authMiddleware, productCategoryController.addProductCategory);  
 router.put("/:id", authMiddleware, productCategoryController.updateProductCategory); 
 router.delete("/:id", authMiddleware, productCategoryController.deleteProductCategory);

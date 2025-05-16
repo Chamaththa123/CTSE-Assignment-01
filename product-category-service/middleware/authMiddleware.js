@@ -8,6 +8,7 @@ module.exports = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token.split(" ")[1], SECRET_KEY);
+    //fgfggdfgdf
     req.user = decoded;  // Attach user details to request object
     next();
   } catch (error) {

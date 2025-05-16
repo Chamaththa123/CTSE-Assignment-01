@@ -7,10 +7,11 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors());
-const PORT = 3004; 
+const PORT = process.env.PORT || 3004;
+const MONGO_URI = process.env.MONGO_URI;
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://shamodchamaththa:chamaththa123@cluster0.jbqtuwa.mongodb.net/learn_microservice?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

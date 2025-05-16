@@ -9,17 +9,19 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors()); 
-const PORT = 3001;
+const PORT = process.env.PORT || 3004;
+const MONGO_URI = process.env.MONGO_URI;
 
-mongoose.connect('mongodb+srv://shamodchamaththa:chamaththa123@cluster0.jbqtuwa.mongodb.net/learn_microservice?retryWrites=true&w=majority&appName=Cluster0', {
+// Connect to MongoDB
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 .then(() => {
-  console.log('Connected to the MongoDB database successfully');
+  console.log('Connected to MongoDB database successfully');
 })
 .catch((error) => {
-  console.error('Error connecting to the MongoDB database', error);
+  console.error('Error connecting to MongoDB database', error);
 });
 
 app.use(express.json());

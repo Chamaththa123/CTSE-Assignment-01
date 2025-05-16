@@ -11,6 +11,7 @@ const services = [
 ];
 
 // Loop through services to create routes and proxy middleware dynamically
+// Loop through services to create routes and proxy middleware dynamically
 services.forEach(service => {
   app.use(service.route, (req, res, next) => {
     console.log(`Proxying request to ${service.serviceName}`);
